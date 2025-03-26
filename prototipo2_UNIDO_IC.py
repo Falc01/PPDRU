@@ -3,7 +3,7 @@ import streamlit as st
 import plotly.express as px
 
 # Carregar os dados da planilha
-file_path = "prototipo_2\\dados_agrupadosV2.xlsx"
+file_path = "dados_agrupadosV2.xlsx"
 df = pd.read_excel(file_path)
 
 # Converter colunas de decimal para porcentagem
