@@ -56,6 +56,7 @@ def page_1():
             }
         
         st.write("### 📊 Distribuição percentual da população residente, por sexo, segundo os bairros de Salvador, 2010")
+        st.write(f"##### {bairro_selecionado}")
         
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
