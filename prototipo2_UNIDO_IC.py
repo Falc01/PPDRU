@@ -45,7 +45,7 @@ def page_1():
     mostrar_pop_total = st.sidebar.checkbox("População por sexo", True)
     mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
     mostrar_cor = st.sidebar.checkbox("População por cor/raça", True)
-    mostrar_densidade = st.sidebar.checkbox("Densidade Populacional", True)
+    mostrar_densidade = st.sidebar.checkbox("Densidade populacional", True)
     mostrar_analfabetismo = st.sidebar.checkbox("População não alfabetizada", True)
     
     # Exibir gráficos conforme seleção do usuário
