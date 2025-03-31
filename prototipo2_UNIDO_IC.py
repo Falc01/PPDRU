@@ -86,7 +86,7 @@ def page_1():
         criterio_ordenacao_pop = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_pop.keys()))
 
         # Aplicar ordenação ao DataFrame
-        coluna_ordenacao, ordem_crescente = opcoes_ordenacao_pop[criterio_ordenacao_pop]
+        coluna_ordenacao_pop, ordem_crescente = opcoes_ordenacao_pop[criterio_ordenacao_pop]
         df_ordenado = df.sort_values(by=coluna_ordenacao_pop, ascending=ordem_crescente)
 
         # Ordenar os dados para manter a ordem original dos bairros
