@@ -148,6 +148,7 @@ def page_1():
             
             st.write(f'### 📊 Distribuição percentual da população residente, por cor/raça, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
+            st.write(f'##### {bairro_selecionado}')
             
             fig_cor = px.pie(
                 names=list(cor_values.keys()), 
