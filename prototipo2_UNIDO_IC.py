@@ -37,11 +37,6 @@ def formatar_rotulo(rotulo):
 # Menu na barra lateral para navegação entre páginas
 page = st.sidebar.radio("Escolha a página", ["Graficos de População", "Graficos de Domicilios"])
 
-if page == "Graficos de População":
-    page_1()
-elif page == "Graficos de Domicilios":
-    page_2()
-
 # Função para a página 1
 def page_1():
     
@@ -409,4 +404,9 @@ def page_2():
         fig_renda.update_layout(showlegend=False)
         
         st.plotly_chart(fig_renda)
+
+if page == "Graficos de População":
+    page_1()
+elif page == "Graficos de Domicilios":
+    page_2()
         
