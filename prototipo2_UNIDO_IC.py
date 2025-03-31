@@ -137,11 +137,18 @@ def page_1():
     if mostrar_cor:
         cor_cols = [col for col in df.columns if "COR_" in col]
         if cor_cols:
+
+            cor_values = {
+            "Parda": df_bairro_selecionado["COR_PARDA"].iloc[0],
+            "Preta": df_bairro_selecionado["COR_PRETA"].iloc[0]
+            "Branca": df_bairro_selecionado["COR_BRANCA"].iloc[0]
+            "Amarela": df_bairro_selecionado["COR_AMARELA"].iloc[0]
+            "Indigena": df_bairro_selecionado["COR_INDIGENA"].iloc[0]
+            }
             
             st.write(f'### 📊 Distribuição percentual da população residente, por cor/raça, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
             
-            cor_values = {formatar_rotulo(col): df_bairro_selecionado[col].iloc[0] for col in cor_cols}
             fig_cor = px.pie(
                 names=list(cor_values.keys()), 
                 values=list(cor_values.values()), 
