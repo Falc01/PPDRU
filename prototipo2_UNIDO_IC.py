@@ -42,11 +42,11 @@ def page_1():
     
     # Barra lateral para selecionar gráficos
     st.sidebar.header("🔽 Selecione os Gráficos")
-    mostrar_pop_total = st.sidebar.checkbox("Homens x Mulheres", True)
-    mostrar_faixa_etaria = st.sidebar.checkbox("Gráfico de Faixa Etária", True)
-    mostrar_cor = st.sidebar.checkbox("Gráfico de Cor", True)
+    mostrar_pop_total = st.sidebar.checkbox("População por sexo", True)
+    mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
+    mostrar_cor = st.sidebar.checkbox("População por cor/raça", True)
     mostrar_densidade = st.sidebar.checkbox("Densidade Populacional", True)
-    mostrar_analfabetismo = st.sidebar.checkbox("Taxa de Analfabetismo", True)
+    mostrar_analfabetismo = st.sidebar.checkbox("População não alfabetizada", True)
     
     # Exibir gráficos conforme seleção do usuário
     if mostrar_pop_total:
