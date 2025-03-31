@@ -200,7 +200,7 @@ def page_1():
         # Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
         
-        st.write('### 📊 População residente acima de 15 anos, não alfabetizada, segundo os bairros de Salvador, 2010')
+        st.write('### 📊 População residente acima de 15 anos não alfabetizada, segundo os bairros de Salvador, 2010')
     
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
