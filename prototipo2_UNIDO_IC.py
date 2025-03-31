@@ -140,10 +140,10 @@ def page_1():
 
             cor_values = {
             "Parda": df_bairro_selecionado["COR_PARDA"].iloc[0],
-            "Preta": df_bairro_selecionado["COR_PRETA"].iloc[0]
-            "Branca": df_bairro_selecionado["COR_BRANCA"].iloc[0]
-            "Amarela": df_bairro_selecionado["COR_AMARELA"].iloc[0]
-            "Indigena": df_bairro_selecionado["COR_INDIGENA"].iloc[0]
+            "Preta": df_bairro_selecionado["COR_PRETA"].iloc[0],
+            "Branca": df_bairro_selecionado["COR_BRANCA"].iloc[0],
+            "Amarela": df_bairro_selecionado["COR_AMARELA"].iloc[0],
+            "Indigena": df_bairro_selecionado["COR_INDIGENA"].iloc[0],
             }
             
             st.write(f'### 📊 Distribuição percentual da população residente, por cor/raça, segundo os bairros de Salvador, 2010')
