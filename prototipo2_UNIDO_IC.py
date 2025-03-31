@@ -68,8 +68,6 @@ def page_1():
         pop_total_bairro = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
-    
-        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
 
         st.write('### Grafico de Total de Residente')
         
@@ -108,7 +106,11 @@ def page_1():
 
         st.plotly_chart(fig_pop_total)
         
-        st.write('### Grafico de Total de Residente')
+        st.write('### Grafico da proporção de um bairro sobre a população de salvador população de salvador ')
+        st.write('##### aqui ficaria o graffio da proporção da população do bairro sobre a população de salvador')
+
+        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+    
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
         if idade_cols:
