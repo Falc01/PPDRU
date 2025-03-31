@@ -34,6 +34,14 @@ df_bairro_selecionado = df[df["NOME_BAIRRO"] == bairro_selecionado]
 def formatar_rotulo(rotulo):
     return " ".join(palavra.capitalize() for palavra in rotulo.split("_"))
 
+# Menu na barra lateral para navegação entre páginas
+page = st.sidebar.radio("Escolha a página", ["Graficos de População", "Graficos de Domicilios"])
+
+if page == "Graficos de População":
+    page_1()
+elif page == "Graficos de Domicilios":
+    page_2()
+
 # Função para a página 1
 def page_1():
     
@@ -402,10 +410,3 @@ def page_2():
         
         st.plotly_chart(fig_renda)
         
-# Menu na barra lateral para navegação entre páginas
-page = st.sidebar.radio("Escolha a página", ["Graficos de População", "Graficos de Domicilios"])
-
-if page == "Graficos de População":
-    page_1()
-elif page == "Graficos de Domicilios":
-    page_2()
