@@ -200,7 +200,7 @@ def page_1():
         # Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
         
-        st.write('### 📊População total residente acima de 15 anos, não alfabetizada, por sexo, segundo os bairros do município de Salvador, 2010')
+        st.write('### 📊 População residente acima de 15 anos, não alfabetizada, segundo os bairros de Salvador, 2010')
     
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
@@ -223,7 +223,7 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="EDUC_ANALFABETISMO", 
-            labels={'EDUC_ANALFABETISMO': 'Taxa de Analfabetismo', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'EDUC_ANALFABETISMO': 'População Analfabeta', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
