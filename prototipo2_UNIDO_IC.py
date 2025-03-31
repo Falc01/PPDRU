@@ -70,6 +70,41 @@ def page_1():
     
         st.write(f"##### População Total no bairro: {pop_total_bairro}")
         st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+        
+        # Adicionar a coluna de cor, sem alterar a ordem dos bairros
+        df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
+
+        # Filtro de ordenação
+        st.write("##### 🔽 Ordenação dos Dados")
+        opcoes_ordenacao = {
+            "Alfabética": ("NOME_BAIRRO", True),
+            "Densidade (Crescente)": ("POP_TOTAL_RESIDENTE", True),
+            "Densidade (Decrescente)": ("POP_TOTAL_RESIDENTE", False),
+        }   
+
+        criterio_ordenacao = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao.keys()))
+
+        # Aplicar ordenação ao DataFrame
+        coluna_ordenacao, ordem_crescente = opcoes_ordenacao[criterio_ordenacao]
+        df_ordenado = df.sort_values(by=coluna_ordenacao, ascending=ordem_crescente)
+
+        # Ordenar os dados para manter a ordem original dos bairros
+        categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
+
+        fig_pop_total = px.bar(
+            df_ordenado, 
+            x="NOME_BAIRRO", 
+            y="POP_TOTAL_RESIDENTE", 
+            labels={'POP_TOTAL_RESIDENTE': 'População Total', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            color="cor", 
+            color_discrete_map={"red": "red", "blue": "lightblue"},
+            category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
+        )
+
+        # Remover a legenda
+        fig_pop_total.update_layout(showlegend=False)
+
+        st.plotly_chart(fig_pop_total)
 
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
