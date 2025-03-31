@@ -69,7 +69,7 @@ def page_1():
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
     
-                st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
 
         st.write('### Grafico de Total de Residente')
         
