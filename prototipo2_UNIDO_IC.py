@@ -86,7 +86,7 @@ def page_1():
             }
             
             st.write("### 📊População total residente por faixas etárias segundo os bairros do município de Salvador, 2010")
-            st.write(f"###### {bairro_selecionado}")
+            st.write(f"##### {bairro_selecionado}")
             
             fig_barras = px.bar(
                 x=list(faixa_etaria.keys()), 
