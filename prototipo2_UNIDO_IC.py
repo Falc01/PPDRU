@@ -77,7 +77,7 @@ def page_1():
 
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
-        opcoes_ordenacao = {
+        opcoes_ordenacao_pop = {
             "Alfabética": ("NOME_BAIRRO", True),
             "Densidade (Crescente)": ("POP_TOTAL_RESIDENTE", True),
             "Densidade (Decrescente)": ("POP_TOTAL_RESIDENTE", False),
