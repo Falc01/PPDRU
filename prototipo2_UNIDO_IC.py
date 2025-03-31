@@ -55,7 +55,7 @@ def page_1():
             "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
             }
         
-        st.write(f"### 📊Percentual da População total residente, por sexo, segundo os bairros do município de Salvador, 2010 : {bairro_selecionado}")
+        st.write("### 📊Distribuição percentual da população total residente, por sexo, segundo os bairros do município de Salvador, 2010")
         
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
@@ -68,8 +68,8 @@ def page_1():
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
     
-        st.write(f"### População Total de Residentes no Bairro {bairro_selecionado}: {pop_total_bairro}")
-        st.write(f"### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+        st.write(f"##### População Total no bairro: {pop_total_bairro}")
+        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
 
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
