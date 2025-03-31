@@ -257,7 +257,8 @@ def page_2():
             "Domicilios em Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
             
-            st.write(f'### 📊 Total de domicílios particulares permanentes por tipo de infraestrutura urbana, segundo os bairros de Salvador, 2010: {bairro_selecionado}')
+            st.write(f'### 📊 Distribuição dos domicílios particulares permanentes por tipo, segundo os bairros de Salvador, 2010')
+            st.write(f'##### {bairro_selecionado}')
             
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
