@@ -148,7 +148,6 @@ def page_1():
             
             st.write(f'### 📊 Distribuição percentual da população residente, por cor/raça, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
-            st.write(f'##### {bairro_selecionado}')
             
             fig_cor = px.pie(
                 names=list(cor_values.keys()), 
@@ -258,8 +257,7 @@ def page_2():
             "Domicilios em Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
             
-            st.write(f'### 📊 Distribuição dos domicílios particulares permanentes por tipo, segundo os bairros de Salvador, 2010')
-            st.write(f'##### {bairro_selecionado}')
+
             
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
