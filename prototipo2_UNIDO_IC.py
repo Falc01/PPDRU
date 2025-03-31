@@ -55,7 +55,7 @@ def page_1():
             "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
             }
         
-        st.write("### 📊Distribuição percentual da população total residente, por sexo, segundo os bairros do município de Salvador, 2010")
+        st.write("### 📊 Distribuição percentual da população total residente, por sexo, segundo os bairros do município de Salvador, 2010")
         
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
@@ -77,7 +77,7 @@ def page_1():
             
             faixa_etaria = {
             "Entre 0 a 6 Anos": df_bairro_selecionado["IDADE_0_6_ANOS"].iloc[0],
-            "Entre 17 a 14 Anos": df_bairro_selecionado["IDADE_7_14_ANOS"].iloc[0],
+            "Entre 7 a 14 Anos": df_bairro_selecionado["IDADE_7_14_ANOS"].iloc[0],
             "Entre 15 a 18 Anos": df_bairro_selecionado["IDADE_15_18_ANOS"].iloc[0],
             "Entre 19 a 24 Anos": df_bairro_selecionado["IDADE_19_24_ANOS"].iloc[0],
             "Entre 25 a 49 Anos": df_bairro_selecionado["IDADE_25_49_ANOS"].iloc[0],
