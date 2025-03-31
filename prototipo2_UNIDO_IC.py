@@ -138,7 +138,7 @@ def page_1():
         cor_cols = [col for col in df.columns if "COR_" in col]
         if cor_cols:
             
-            st.write(f'### 📊Percentual da população total residente por cor/raça segundo os bairros do município de Salvador, 2010 :  {bairro_selecionado}')
+            st.write(f'### 📊 Distribuição percentual da população residente, por cor/raça, segundo os bairros de Salvador, 2010 :  {bairro_selecionado}')
             
             cor_values = {formatar_rotulo(col): df_bairro_selecionado[col].iloc[0] for col in cor_cols}
             fig_cor = px.pie(
