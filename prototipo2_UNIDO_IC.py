@@ -55,7 +55,7 @@ def page_1():
             "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
             }
         
-        st.write("### 📊 Distribuição percentual da população total residente, por sexo, segundo os bairros do município de Salvador, 2010")
+        st.write("### 📊 Distribuição percentual da população residente, por sexo, segundo os bairros de Salvador, 2010")
         
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
