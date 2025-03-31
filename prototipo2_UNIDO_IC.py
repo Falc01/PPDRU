@@ -82,11 +82,11 @@ def page_1():
             "Densidade (Decrescente)": ("POP_TOTAL_RESIDENTE", False),
         }   
 
-        criterio_ordenacao = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao.keys()))
+        criterio_ordenacao_pop = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao.keys()))
 
         # Aplicar ordenação ao DataFrame
         coluna_ordenacao, ordem_crescente = opcoes_ordenacao[criterio_ordenacao]
-        df_ordenado = df.sort_values(by=coluna_ordenacao, ascending=ordem_crescente)
+        df_ordenado = df.sort_values(by=coluna_ordenacao_pop, ascending=ordem_crescente)
 
         # Ordenar os dados para manter a ordem original dos bairros
         categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
