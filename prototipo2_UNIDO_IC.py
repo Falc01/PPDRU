@@ -85,7 +85,7 @@ def page_1():
             "Entre 65 ou mais Anos": df_bairro_selecionado["IDADE_65_MAIS"].iloc[0],
             }
             
-            st.write(f"### 📊População total residente por faixas etárias segundo os bairros do município de Salvador, 2010:" "#### {bairro_selecionado}")
+            st.write("### 📊População total residente por faixas etárias segundo os bairros do município de Salvador, 2010:" f"#### {bairro_selecionado}")
             
             fig_barras = px.bar(
                 x=list(faixa_etaria.keys()), 
