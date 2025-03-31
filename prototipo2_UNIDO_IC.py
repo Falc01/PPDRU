@@ -95,7 +95,7 @@ def page_1():
                 text_auto=True)
             
             st.plotly_chart(fig_barras)
-            st.write(f"##### Grau de Envelhecimento no Bairro {bairro_selecionado}: {df_bairro_selecionado['GRAU_ENVELHECIMENTO'].iloc[0]}")
+            st.write(f"##### Grau de Envelhecimento no Bairro {bairro_selecionado}: {df_bairro_selecionado['GRAU_ENVELHECIMENTO'].iloc[0]} idosos por 100 crianças")
 
     if mostrar_cor:
         cor_cols = [col for col in df.columns if "COR_" in col]
