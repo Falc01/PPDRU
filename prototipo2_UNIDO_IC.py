@@ -69,45 +69,46 @@ def page_1():
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
     
-        st.write(f"##### População Total no bairro: {pop_total_bairro}")
-        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+                st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
 
+        st.write('### Grafico de Total de Residente')
         
-        # Adicionar a coluna de cor, sem alterar a ordem dos bairros
-        #df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
+        #Adicionar a coluna de cor, sem alterar a ordem dos bairros
+        df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
 
-        # Filtro de ordenação
-        #st.write("##### 🔽 Ordenação dos Dados")
-        #opcoes_ordenacao_pop = {
-        #    "Alfabética": ("NOME_BAIRRO", True),
-        #    "Densidade (Crescente)": ("POP_TOTAL_RESIDENTE", True),
-        #    "Densidade (Decrescente)": ("POP_TOTAL_RESIDENTE", False),
-        #}   
+        #Filtro de ordenação
+        st.write("##### 🔽 Ordenação dos Dados")
+        opcoes_ordenacao_pop = {
+            "Alfabética": ("NOME_BAIRRO", True),
+            "Residente (Crescente)": ("POP_TOTAL_RESIDENTE", True),
+            "Residente (Decrescente)": ("POP_TOTAL_RESIDENTE", False),
+        }   
 
-        #criterio_ordenacao_pop = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_pop.keys()))
+        criterio_ordenacao_pop = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_pop.keys()))
 
-        # Aplicar ordenação ao DataFrame
-        #coluna_ordenacao_pop, ordem_crescente = opcoes_ordenacao_pop[criterio_ordenacao_pop]
-        #df_ordenado = df.sort_values(by=coluna_ordenacao_pop, ascending=ordem_crescente)
+        #Aplicar ordenação ao DataFrame
+        coluna_ordenacao_pop, ordem_crescente = opcoes_ordenacao_pop[criterio_ordenacao_pop]
+        df_ordenado = df.sort_values(by=coluna_ordenacao_pop, ascending=ordem_crescente)
 
-        # Ordenar os dados para manter a ordem original dos bairros
-        #categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
+        #Ordenar os dados para manter a ordem original dos bairros
+        categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
 
-        #fig_pop_total = px.bar(
-        #    df_ordenado, 
-        #    x="NOME_BAIRRO", 
-        #    y="POP_TOTAL_RESIDENTE", 
-        #    labels={'POP_TOTAL_RESIDENTE': 'População Total', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
-        #    color="cor", 
-        #    color_discrete_map={"red": "red", "blue": "lightblue"},
-        #    category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
-        #)
+        fig_pop_total = px.bar(
+            df_ordenado, 
+            x="NOME_BAIRRO", 
+            y="POP_TOTAL_RESIDENTE", 
+            labels={'POP_TOTAL_RESIDENTE': 'População Total', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            color="cor", 
+            color_discrete_map={"red": "red", "blue": "lightblue"},
+            category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
+        )
 
-        # Remover a legenda
-        #fig_pop_total.update_layout(showlegend=False)
+        #Remover a legenda
+        fig_pop_total.update_layout(showlegend=False)
 
-        #st.plotly_chart(fig_pop_total)
-
+        st.plotly_chart(fig_pop_total)
+        
+        st.write('### Grafico de Total de Residente')
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
         if idade_cols:
