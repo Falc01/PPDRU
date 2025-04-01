@@ -320,9 +320,9 @@ def page_2():
     mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
     mostrar_moradores  = st.sidebar.checkbox("Gráfico de Moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Gráfico de Proporções", True)
-    mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicilio", True)
+    mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
     mostrar_renda_sexo = st.sidebar.checkbox("Renda de Homens e Mulheres", True)
-    mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicilios", True)
+    mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicílios", True)
     mostrar_renda = st.sidebar.checkbox("Média de Renda", True)
 
     if mostrar_domicilios:
@@ -342,7 +342,7 @@ def page_2():
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
-                labels= {"x" : "Tipos de domicilios", 'y' : ' '},
+                labels= {"x" : "Tipo de domicílio", 'y' : ' '},
                 text_auto=True
                 )
 
@@ -358,7 +358,7 @@ def page_2():
             
             dom_totais = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
     
-            st.write(f"##### Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
+            st.markdown(f"📌 **Nota:** Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
 
         #Espaçamento entre os graficos
         st.write(" ")
