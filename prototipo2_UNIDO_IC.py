@@ -336,13 +336,13 @@ def page_2():
             "Domicilios em Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
             
-            st.write(f'### 📊 Distribuição dos domicílios particulares permanentes, por tipo, segundo os bairros de Salvador, 2010')
+            st.write(f'### 📊 Numero de domicílios particulares permanentes, por tipo, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
             
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
-                labels= {"x" : "Domicilios", 'y' : 'Quantidade'},
+                labels= {"x" : "Domicilios", 'y' : ' '},
                 )
 
             # Remover a legenda
@@ -352,7 +352,7 @@ def page_2():
             
             dom_totais = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
     
-            st.write(f"### Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
+            st.write(f"##### Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
 
         #Espaçamento entre os graficos
         st.write(" ")
@@ -382,6 +382,11 @@ def page_2():
         )
         st.plotly_chart(fig_dom_pizza)
 
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+
     if mostrar_proporcao:
         prop_cols = [col for col in df.columns if "PROP_" in col]
         if prop_cols:
@@ -399,6 +404,10 @@ def page_2():
                 y=list(prop_values.values()),
                 labels={'x' : 'Proporção', 'y' : 'Porcentagem (%)'}
                 )
+
+            # Remover a legenda
+            fig_prop.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            
             st.plotly_chart(fig_prop)
     
     if mostrar_resp:        
@@ -441,6 +450,11 @@ def page_2():
             # Exibir o gráfico no Streamlit
             st.plotly_chart(fig_pizza)
 
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
+
     if mostrar_renda_sexo:
         # Verificar se as colunas existem antes de criar o gráfico
         if "RESP_RENDA_MEDIA_HOMEM" in df.columns and "RESP_RENDA_MEDIA_MULHER" in df.columns:
@@ -465,8 +479,16 @@ def page_2():
                 color_discrete_map={"Homens": "blue", "Mulheres": "pink"}
             )
 
+            # Remover a legenda
+            fig_genero.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+
             # Exibir o gráfico no Streamlit
             st.plotly_chart(fig_renda_genero)
+
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
     
     if mostrar_salario:
                 
@@ -500,6 +522,11 @@ def page_2():
             
         resp_total_bairro = df_bairro_selecionado["RESP_TOTAL"].iloc[0]
         st.write(f"### População Total de Responsaveis no Bairro {bairro_selecionado}: {resp_total_bairro}")
+
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
     
     if mostrar_renda:
         # Exibir gráficos conforme seleção do usuário
@@ -536,7 +563,7 @@ def page_2():
         )
 
         # Remover a legenda
-        fig_renda.update_layout(showlegend=False)
+        fig_renda.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
         
         st.plotly_chart(fig_renda)
 
