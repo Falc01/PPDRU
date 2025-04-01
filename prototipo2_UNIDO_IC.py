@@ -95,7 +95,7 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="POP_TOTAL_RESIDENTE", 
-            labels={'POP_TOTAL_RESIDENTE': 'População Total', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'POP_TOTAL_RESIDENTE': 'População residente', 'NOME_BAIRRO' : 'Bairros de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
@@ -106,8 +106,9 @@ def page_1():
 
         st.plotly_chart(fig_pop_total)
         
-        st.write('### Grafico da proporção de um bairro sobre a população de salvador população de salvador ')
-        st.write('##### aqui ficaria o graffio da proporção da população do bairro sobre a população de salvador')
+        st.write('### 📊 Grafico da proporção de um bairro sobre a população de salvador população de salvador ')
+        
+        st.write('######## aqui ficaria o graffio da proporção da população do bairro sobre a população de salvador')
 
         st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
     
@@ -224,7 +225,7 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="DENSIDADE", 
-            labels={'DENSIDADE': 'Densidade Populacional', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'DENSIDADE': 'Densidade populacional', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
