@@ -317,7 +317,7 @@ def page_1():
 def page_2():
     # Barra lateral para selecionar gráficos
     st.sidebar.header("🔽 Selecione os Gráficos")
-    mostrar_domicilios = st.sidebar.checkbox("Gráfico de Domicílios", True)
+    mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
     mostrar_moradores  = st.sidebar.checkbox("Gráfico de Moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Gráfico de Proporções", True)
     mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicilio", True)
@@ -331,9 +331,9 @@ def page_2():
         if dom_cols:
             
             dom_values = {
-            "Domicilios de Casa": df_bairro_selecionado["DOM_PART_PERM_CASA"].iloc[0],
-            "Domicilios de Casa em Vilas": df_bairro_selecionado["DOM_PART_PERM_CASA_VILA"].iloc[0],
-            "Domicilios em Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
+            "Casa": df_bairro_selecionado["DOM_PART_PERM_CASA"].iloc[0],
+            "Casa em vilas": df_bairro_selecionado["DOM_PART_PERM_CASA_VILA"].iloc[0],
+            "Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
             
             st.write(f'### 📊 Total de domicílios particulares permanentes, por tipo, segundo os bairros de Salvador, 2010')
@@ -342,8 +342,8 @@ def page_2():
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
-                labels= {"x" : "Domicilios", 'y' : ' '},
-                text_auto=True
+                labels= {"x" : "Tipos de domicilios", 'y' : ' '},
+                text=dom_values
                 )
 
             # Remover a legenda
@@ -351,7 +351,8 @@ def page_2():
                 yaxis_showticklabels=False, 
                 showlegend=False, 
                 yaxis_showgrid=False, 
-                yaxis_tickformat=".", 
+                yaxis_tickformat=".",
+                textposition='outside'
             )
             
             st.plotly_chart(fig_dom)
