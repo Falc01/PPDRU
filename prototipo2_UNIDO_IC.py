@@ -267,7 +267,7 @@ def page_1():
 
         st.plotly_chart(fig_densidade)
 
-        st.markdown("📌 **Nota:** Densidade demografica: Habitantes por Km²")
+        st.markdown("📌 **Nota:** Densidade demográfica - Habitantes/Km²")
         
         #Espaçamento entre os graficos
         st.write(" ")
