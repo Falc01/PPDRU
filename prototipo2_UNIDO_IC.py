@@ -136,7 +136,7 @@ def page_1():
             fig_barras = px.bar(
                 x=list(faixa_etaria.keys()), 
                 y=list(faixa_etaria.values()),
-                labels= {"x" : "Grupos de Idades", 'y' : ' '},
+                labels= {"x" : "Grupos de idades", 'y' : ' '},
                 text_auto=True
             )
 
@@ -156,7 +156,7 @@ def page_1():
             opcoes_ordenacao_grau = {
                "Alfabética": ("NOME_BAIRRO", True),
                "Salvador (Crescente)": ('GRAU_ENVELHECIMENTO', True),
-                "Salvador (Decrescente)": ('GRAU_ENVELHECIMENTO', False),
+               "Salvador (Decrescente)": ('GRAU_ENVELHECIMENTO', False),
             }   
 
             criterio_ordenacao_grau = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_grau.keys()))
