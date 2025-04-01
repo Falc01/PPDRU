@@ -425,52 +425,57 @@ def page_2():
             fig_prop.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
             
             st.plotly_chart(fig_prop)
+
+            #Espaçamento entre os graficos
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
     
-    if mostrar_resp:        
+    #if mostrar_resp:        
         # Verificar se as colunas existem antes de criar o gráfico
-        if all(col in df.columns for col in ["RESP_MULHER", "RESP_IDOSOS", "RESP_TOTAL"]):
+    #    if all(col in df.columns for col in ["RESP_MULHER", "RESP_IDOSOS", "RESP_TOTAL"]):
             # Filtrar os dados apenas para o bairro selecionado
-            df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
+    #        df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
-            st.write(f'##### {bairro_selecionado}')
+    #        st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+    #        st.write(f'##### {bairro_selecionado}')
 
             # Calcular a nova variável RESP_HOMEM_JOVEM
-            resp_mulher = df_bairro["RESP_MULHER"].values[0]
-            resp_idosos = df_bairro["RESP_IDOSOS"].values[0]
-            resp_total = df_bairro["RESP_TOTAL"].values[0]
-            resp_homem_jovem = resp_total - (resp_mulher + resp_idosos)
+    #        resp_mulher = df_bairro["RESP_MULHER"].values[0]
+    #        resp_idosos = df_bairro["RESP_IDOSOS"].values[0]
+    #        resp_total = df_bairro["RESP_TOTAL"].values[0]
+    #        resp_homem_jovem = resp_total - (resp_mulher + resp_idosos)
 
             # Criar um DataFrame para o gráfico de pizza
-            df_pizza = pd.DataFrame({
-                "Categoria": [
-                    "Mulheres", 
-                    "Idosos", 
-                    "Homens"
-                ],
-                "Quantidade": [resp_mulher, resp_idosos, resp_homem_jovem]
-            })
+    #        df_pizza = pd.DataFrame({
+    #            "Categoria": [
+    #                "Mulheres", 
+    #                "Idosos", 
+    #                "Homens"
+    #            ],
+    #            "Quantidade": [resp_mulher, resp_idosos, resp_homem_jovem]
+    #        })
 
             # Criar gráfico de pizza
-            fig_pizza = px.pie(
-                df_pizza, 
-                names="Categoria", 
-                values="Quantidade", 
-                color="Categoria",
-                color_discrete_map={
-                    "Mulheres": "pink",
-                    "Idosos": "gray",
-                    "Homens": "blue"
-                }
-            )
+    #        fig_pizza = px.pie(
+    #            df_pizza, 
+    #            names="Categoria", 
+    #            values="Quantidade", 
+    #            color="Categoria",
+    #            color_discrete_map={
+    #                "Mulheres": "pink",
+    #                "Idosos": "gray",
+    #                "Homens": "blue"
+    #            }
+    #        )
 
             # Exibir o gráfico no Streamlit
-            st.plotly_chart(fig_pizza)
+     #     st.plotly_chart(fig_pizza)
 
         #Espaçamento entre os graficos
-        st.write(" ")
-        st.write(" ")
-        st.write(" ")
+     #   st.write(" ")
+     #   st.write(" ")
+     #   st.write(" ")
 
     if mostrar_renda_sexo:
         # Verificar se as colunas existem antes de criar o gráfico
@@ -478,7 +483,7 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+            st.write(f'### 📊 Salario medio Homens e Mulheres ')
             st.write(f'##### {bairro_selecionado}')
 
             # Criar um DataFrame para o gráfico
@@ -519,9 +524,7 @@ def page_2():
         "Sem Rendimento": df_bairro_selecionado["RESP_SEM_RENDIMENTO"].iloc[0],
         }
         
-        #RESP_RENDA_0_2_SM	RESP_RENDA_2_5_SM	RESP_RENDA_5_10_SM	RESP_RENDA_10_20_SM	RESP_RENDA_20_MAIS_SM	RESP_SEM_RENDIMENTO
-        
-        st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+        st.write(f'### 📊 Quantidade de salarios minimos por domicilios')
         st.write(f'##### {bairro_selecionado}')
         
         fig_resp_pizza = px.pie(
@@ -552,7 +555,7 @@ def page_2():
         # Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
         
-        st.write('### 📊Rendimento médio dos responsáveis por domicílios particulares permanentes, segundo os bairros do município de Salvador, 2010')
+        st.write('### 📊 Rendimento médio dos responsáveis por domicílios particulares permanentes, segundo os bairros do município de Salvador, 2010')
     
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
