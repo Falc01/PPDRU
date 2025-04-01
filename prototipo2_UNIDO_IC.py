@@ -578,7 +578,7 @@ def page_2():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="RESP_RENDA_MEDIA", 
-            labels={'RESP_RENDA_MEDIA': 'Média de Renda (R$)', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'RESP_RENDA_MEDIA': ' ', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
