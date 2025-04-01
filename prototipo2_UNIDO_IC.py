@@ -432,7 +432,8 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊Distribuição de Responsáveis pelo Domicílio: {bairro_selecionado}')
+            st.write(f'### 📊 Distribuição percentual dos responsaveis dos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+            st.write(f'##### {bairro_selecionado}')
 
             # Calcular a nova variável RESP_HOMEM_JOVEM
             resp_mulher = df_bairro["RESP_MULHER"].values[0]
