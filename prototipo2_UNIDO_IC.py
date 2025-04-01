@@ -61,6 +61,7 @@ def page_1():
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
             values=list(valores_bairro.values()),
+            color=valores_bairro,
             color_discrete_map={
                     "Mulheres": "pink",
                     "Homens": "blue"
