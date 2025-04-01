@@ -61,6 +61,10 @@ def page_1():
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
             values=list(valores_bairro.values()),
+            color_discrete_map={
+                    "Mulheres": "pink",
+                    "Homens": "blue"
+                }
             )
         
         st.plotly_chart(fig_pizza)
@@ -107,6 +111,8 @@ def page_1():
         st.plotly_chart(fig_pop_total)
 
         st.markdown(f"📌 **Nota:** A população residente deste bairro representa {percentual_bairro:.2f}% da população de Salvador.")
+
+        #Espaçamento entre os graficos
         st.write(" ")
         st.write(" ")
         st.write(" ")
