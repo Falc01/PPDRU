@@ -318,7 +318,7 @@ def page_2():
     # Barra lateral para selecionar gráficos
     st.sidebar.header("🔽 Selecione os Gráficos")
     mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
-    mostrar_moradores  = st.sidebar.checkbox("Gráfico de Moradores", True)
+    mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Gráfico de Proporções", True)
     mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
     mostrar_renda_sexo = st.sidebar.checkbox("Renda de Homens e Mulheres", True)
