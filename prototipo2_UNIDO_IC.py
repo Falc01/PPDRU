@@ -321,7 +321,7 @@ def page_2():
     mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Domicílios por tipo de infraestrutura urbana", True)
     #mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
-    mostrar_renda_sexo = st.sidebar.checkbox("Renda de Homens e Mulheres", True)
+    mostrar_renda_sexo = st.sidebar.checkbox("Rendimento por Sexo", True)
     mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicílios", True)
     mostrar_renda = st.sidebar.checkbox("Média de Renda", True)
 
@@ -483,7 +483,7 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊 Rendimento médio dos résponsaveis pelos domicílios particulares permanentes, por sexo, segundo os bairros de Salvador, 2010 ')
+            st.write(f'### 📊 Rendimento médio dos responsáveis pelos domicílios particulares permanentes, por sexo, segundo os bairros de Salvador, 2010 ')
             st.write(f'##### {bairro_selecionado}')
 
             # Criar um DataFrame para o gráfico
@@ -497,7 +497,7 @@ def page_2():
                 df_renda_genero, 
                 x="Gênero", 
                 y="Renda Média", 
-                labels={"Renda Média": "Renda Média (R$)"},
+                labels={"Renda Média": " ", "Gênero": "Sexo"},
                 color="Gênero", 
                 color_discrete_map={"Homens": "blue", "Mulheres": "pink"}
             )
