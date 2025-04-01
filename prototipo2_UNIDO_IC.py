@@ -145,6 +145,11 @@ def page_1():
             
             st.plotly_chart(fig_barras)
 
+            #Espaçamento entre os graficos
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
+            
             st.write('### 📊 Grau de envelhecimento da população residente segundo os bairros de Salvador, 2010')
             
             #Adicionar a coluna de cor, sem alterar a ordem dos bairros
@@ -182,6 +187,11 @@ def page_1():
             fig_grau.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
             st.plotly_chart(fig_grau)
+
+            #Espaçamento entre os graficos
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
 
     if mostrar_cor:
         cor_cols = [col for col in df.columns if "COR_" in col]
