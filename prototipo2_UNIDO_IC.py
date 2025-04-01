@@ -358,7 +358,7 @@ def page_2():
             
             dom_totais = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
     
-            st.markdown(f"📌 **Nota:** Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
+            st.markdown(f"📌 **Nota:** Total de domicilios no bairro de {bairro_selecionado}: {dom_totais}")
 
         #Espaçamento entre os graficos
         st.write(" ")
