@@ -412,7 +412,7 @@ def page_2():
             "Abastecimento de água ligado a rede geral": df_bairro_selecionado["PROP_AGUA/DOM"].iloc[0],
             }
                      
-            st.write(f'### 📊 Distribuição percentual dos domicílios particulares permanentes, por tipo de infraestrutura urbada segundo os bairros de Salvador, 2010 ')
+            st.write(f'### 📊 Distribuição percentual dos domicílios particulares permanentes, por tipo de infraestrutura urbada segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
             
             fig_prop = px.bar(
@@ -483,7 +483,7 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊 Salario medio Homens e Mulheres ')
+            st.write(f'### 📊 Rendimento medio dos responsaveis pelos domicílios particulares permanentes, por sexo, segundo os bairros de Salvador, 2010 ')
             st.write(f'##### {bairro_selecionado}')
 
             # Criar um DataFrame para o gráfico
