@@ -352,7 +352,6 @@ def page_2():
                 showlegend=False, 
                 yaxis_showgrid=False, 
                 yaxis_tickformat=".", 
-                textposition='outside'
             )
             
             st.plotly_chart(fig_dom)
