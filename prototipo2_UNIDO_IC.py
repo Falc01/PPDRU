@@ -374,7 +374,7 @@ def page_2():
         "7 ou mais moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
         }
         
-        st.write(f'### 📊Distribuição percentual dos domicílios, por número de moradores, segundo os bairros de Salvador, 2010')
+        st.write(f'### 📊Distribuição percentual dos domicílios particulares permanentes, por número de moradores, segundo os bairros de Salvador, 2010')
         st.write(f'##### {bairro_selecionado}')
             
         fig_dom_pizza = px.pie(
@@ -399,9 +399,9 @@ def page_2():
         if prop_cols:
             
             prop_values = {
-            "Lixo por Domicílio": df_bairro_selecionado["PROP_LIXO/DOM"].iloc[0],
-            "Saneamento por Domicílio": df_bairro_selecionado["PROP_SANEAMENTO/DOM"].iloc[0],
-            "Água por Domicílio": df_bairro_selecionado["PROP_AGUA/DOM"].iloc[0],
+            "Lixo coletado": df_bairro_selecionado["PROP_LIXO/DOM"].iloc[0],
+            "Esgotamento sanitário ligado a rede geral": df_bairro_selecionado["PROP_SANEAMENTO/DOM"].iloc[0],
+            "Abastecimento de água ligado a rede geral": df_bairro_selecionado["PROP_AGUA/DOM"].iloc[0],
             }
                      
             st.write(f'### 📊Percentual de domicílios particulares permanentes por tipo de infraestrutura urbana, segundo os bairros do município de Salvador, 2010: {bairro_selecionado}')
