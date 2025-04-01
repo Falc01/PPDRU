@@ -35,13 +35,13 @@ def formatar_rotulo(rotulo):
     return " ".join(palavra.capitalize() for palavra in rotulo.split("_"))
 
 # Menu na barra lateral para navegação entre páginas
-page = st.sidebar.radio("Escolha a página", ["Graficos de População", "Graficos de Domicilios"])
+page = st.sidebar.radio("Escolha a página", ["População", "Domicilios"])
 
 # Função para a página 1
 def page_1():
     
     # Barra lateral para selecionar gráficos
-    st.sidebar.header("🔽 Selecione os Gráficos")
+    st.sidebar.header("🔽 Selecione os gráficos")
     mostrar_pop_total = st.sidebar.checkbox("População por sexo", True)
     mostrar_pop_total_bairro = st.sidebar.checkbox("População por bairros", True)
     mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
@@ -316,7 +316,7 @@ def page_1():
 # Função para a página 2
 def page_2():
     # Barra lateral para selecionar gráficos
-    st.sidebar.header("🔽 Selecione os Gráficos")
+    st.sidebar.header("🔽 Selecione os gráficos")
     mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
     mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Domicílios por tipo de infraestrutura urbana", True)
@@ -589,8 +589,8 @@ def page_2():
         
         st.plotly_chart(fig_renda)
 
-if page == "Graficos de População":
+if page == "População":
     page_1()
-elif page == "Graficos de Domicilios":
+elif page == "Domicilios":
     page_2()
         
