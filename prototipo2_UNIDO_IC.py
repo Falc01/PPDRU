@@ -47,7 +47,7 @@ def page_1():
     mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
     mostrar_grau = st.sidebar.checkbox("Grau de envelhecimento", True)
     mostrar_cor = st.sidebar.checkbox("População por cor/raça", True)
-    mostrar_densidade = st.sidebar.checkbox("Densidade populacional", True)
+    mostrar_densidade = st.sidebar.checkbox("Densidade demográfica", True)
     mostrar_analfabetismo = st.sidebar.checkbox("População não alfabetizada", True)
     
     # Exibir gráficos conforme seleção do usuário
@@ -233,7 +233,7 @@ def page_1():
         # Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
         
-        st.write('### 📊 Densidade demográfica, segundo os bairros de Salvador, 2010')
+        st.write('### 📊 Densidade demográfica segundo os bairros de Salvador, 2010')
 
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
@@ -266,6 +266,8 @@ def page_1():
         fig_densidade.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
         st.plotly_chart(fig_densidade)
+
+        st.markdown("📌 **Nota:** Densidade demografica: Habitantes por Km²")
         
         #Espaçamento entre os graficos
         st.write(" ")
