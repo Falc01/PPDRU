@@ -106,7 +106,7 @@ def page_1():
 
         st.plotly_chart(fig_pop_total)
 
-        st.sidebar.markdown(f"📌 **Nota:** Este bairro representa percentual_bairro:.2f}% da população total de Salvador.")
+        st.sidebar.markdown(f"📌 **Nota:** Este bairro representa {percentual_bairro:.2f}% da população total de Salvador.")
     
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
