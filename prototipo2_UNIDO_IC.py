@@ -319,7 +319,7 @@ def page_2():
     st.sidebar.header("🔽 Selecione os Gráficos")
     mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
     mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
-    mostrar_proporcao = st.sidebar.checkbox("Domicílios por infraestrutura urbana", True)
+    mostrar_proporcao = st.sidebar.checkbox("Domicílios por tipo de infraestrutura urbana", True)
     #mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
     mostrar_renda_sexo = st.sidebar.checkbox("Renda de Homens e Mulheres", True)
     mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicílios", True)
