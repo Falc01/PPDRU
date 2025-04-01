@@ -49,7 +49,7 @@ def page_1():
     mostrar_analfabetismo = st.sidebar.checkbox("População não alfabetizada", True)
     
     # Exibir gráficos conforme seleção do usuário
-   if mostrar_pop_total:
+    if mostrar_pop_total:
         valores_bairro = {
             "Homens": df_bairro_selecionado["POP_TOTAL_HOMEM"].iloc[0],
             "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
