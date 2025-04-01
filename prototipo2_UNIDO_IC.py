@@ -418,7 +418,7 @@ def page_2():
             fig_prop = px.bar(
                 x=list(prop_values.keys()), 
                 y=list(prop_values.values()),
-                labels={'x' : 'Tipo de infraestrutura urbana', 'y' : 'Porcentagem (%)'}
+                labels={'x' : 'Tipo de infraestrutura urbana do domicílio', 'y' : 'Porcentagem (%)'}
                 )
 
             # Remover a legenda
