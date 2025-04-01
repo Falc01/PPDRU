@@ -70,6 +70,10 @@ def page_1():
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
 
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
 
     if mostrar_pop_total_bairro:
         st.write('### 📊 População residente segundo os bairros de Salvador, 2010')
@@ -214,6 +218,11 @@ def page_1():
                 )
             
             st.plotly_chart(fig_cor)
+            
+            #Espaçamento entre os graficos
+            st.write(" ")
+            st.write(" ")
+            st.write(" ")
 
     # Exibir gráficos conforme seleção do usuário
     if mostrar_densidade:
@@ -253,6 +262,11 @@ def page_1():
         fig_densidade.update_layout(showlegend=False)
 
         st.plotly_chart(fig_densidade)
+        
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
 
     # Exibir gráficos conforme seleção do usuário
     if mostrar_analfabetismo:
