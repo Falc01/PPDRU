@@ -418,7 +418,7 @@ def page_2():
             fig_prop = px.bar(
                 x=list(prop_values.keys()), 
                 y=list(prop_values.values()),
-                labels={'x' : 'Tipo de infraestrutura urbana do domicílio', 'y' : 'Porcentagem (%)'}
+                labels={'x' : 'Tipo de infraestrutura urbana', 'y' : ' '}
                 )
 
             # Remover a legenda
@@ -478,7 +478,8 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f"### 📊 Renda Média por Gênero no Bairro: {bairro_selecionado}")
+            st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+            st.write(f'##### {bairro_selecionado}')
 
             # Criar um DataFrame para o gráfico
             df_renda_genero = pd.DataFrame({
@@ -520,7 +521,8 @@ def page_2():
         
         #RESP_RENDA_0_2_SM	RESP_RENDA_2_5_SM	RESP_RENDA_5_10_SM	RESP_RENDA_10_20_SM	RESP_RENDA_20_MAIS_SM	RESP_SEM_RENDIMENTO
         
-        st.write(f'### 📊Renda dos Resposaveis dos Domicilios em Salarios Minimos: {bairro_selecionado}')
+        st.write(f'### 📊 Distribuição percentual dos responsaveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010 ')
+        st.write(f'##### {bairro_selecionado}')
         
         fig_resp_pizza = px.pie(
             names=list(resp_pizza_values.keys()),
