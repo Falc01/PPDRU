@@ -69,7 +69,7 @@ def page_1():
         pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
         percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
 
-        st.write('### Grafico de Total de Residente')
+        st.write('### População residente segundo os bairros de Salvador, 2010')
         
         #Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
