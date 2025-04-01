@@ -105,12 +105,8 @@ def page_1():
         fig_pop_total.update_layout(showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
         st.plotly_chart(fig_pop_total)
-        
-        st.write('### 📊 Participação percentual da população de cada bairro de Salvador no total de Salvador, 2010')
-        
-        st.write('######## aqui ficaria o graffio da proporção da população do bairro sobre a população de salvador')
 
-        st.write(f"##### O bairro {bairro_selecionado} representa {percentual_bairro:.2f}% da população total.")
+        st.sidebar.markdown(f"📌 **Nota:** Este bairro representa percentual_bairro:.2f}% da população total de Salvador.")
     
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
