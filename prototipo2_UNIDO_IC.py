@@ -343,10 +343,17 @@ def page_2():
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
                 labels= {"x" : "Domicilios", 'y' : ' '},
+                text_auto=True
                 )
 
             # Remover a legenda
-            fig_dom.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            fig_dom.update_layout(
+                yaxis_showticklabels=False, 
+                showlegend=False, 
+                yaxis_showgrid=False, 
+                yaxis_tickformat=".", 
+                textposition='outside'
+            )
             
             st.plotly_chart(fig_dom)
             
