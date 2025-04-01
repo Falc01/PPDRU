@@ -102,7 +102,7 @@ def page_1():
         )
 
         #Remover a legenda
-        fig_pop_total.update_layout(showlegend=False)
+        fig_pop_total.update_layout(showlegend=False, yaxis_showgrid=False)
 
         st.plotly_chart(fig_pop_total)
         
