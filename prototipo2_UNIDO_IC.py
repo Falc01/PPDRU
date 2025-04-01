@@ -444,9 +444,9 @@ def page_2():
             # Criar um DataFrame para o gráfico de pizza
             df_pizza = pd.DataFrame({
                 "Categoria": [
-                    "Mulheres Responsáveis pelo Domicílio", 
-                    "Idosos Responsáveis pelo Domicílio", 
-                    "Homens Jovens Responsáveis pelo Domicílio"
+                    "Mulheres", 
+                    "Idosos", 
+                    "Homens"
                 ],
                 "Quantidade": [resp_mulher, resp_idosos, resp_homem_jovem]
             })
@@ -458,9 +458,9 @@ def page_2():
                 values="Quantidade", 
                 color="Categoria",
                 color_discrete_map={
-                    "Mulheres Responsáveis pelo Domicílio": "pink",
-                    "Idosos Responsáveis pelo Domicílio": "gray",
-                    "Homens Jovens Responsáveis pelo Domicílio": "blue"
+                    "Mulheres": "pink",
+                    "Idosos": "gray",
+                    "Homens": "blue"
                 }
             )
 
