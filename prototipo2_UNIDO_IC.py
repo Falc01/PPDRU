@@ -137,6 +137,44 @@ def page_1():
             st.plotly_chart(fig_barras)
             st.write(f"##### Grau de Envelhecimento no Bairro {bairro_selecionado}: {df_bairro_selecionado['GRAU_ENVELHECIMENTO'].iloc[0]} idosos por 100 crianças")
 
+            st.write('Grafico sobre o Grau de Envelhecimento')
+            
+            #Adicionar a coluna de cor, sem alterar a ordem dos bairros
+            df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
+
+            #Filtro de ordenação
+            st.write("##### 🔽 Ordenação dos Dados")
+            
+            opcoes_ordenacao_grau = {
+               "Alfabética": ("NOME_BAIRRO", True),
+               "Salvador (Crescente)": ('GRAU_ENVELHECIMENTO', True),
+                "Salvador (Decrescente)": ('GRAU_ENVELHECIMENTO', False),
+            }   
+
+            criterio_ordenacao_grau = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_grau.keys()))
+
+            #Aplicar ordenação ao DataFrame
+            coluna_ordenacao_grau, ordem_crescente = opcoes_ordenacao_grau[criterio_ordenacao_grau]
+            df_ordenado = df.sort_values(by=coluna_ordenacao_grau, ascending=ordem_crescente)
+
+            #Ordenar os dados para manter a ordem original dos bairros
+            categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
+
+            fig_grau = px.bar(
+                df_ordenado, 
+                x="NOME_BAIRRO", 
+                y='GRAU_ENVELHECIMENTO', 
+                labels={'GRAU_ENVELHECIMENTO': 'Grau de Envelhecimento', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+                color="cor", 
+                color_discrete_map={"red": "red", "blue": "lightblue"},
+                category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
+            )
+
+            #Remover a legenda
+            fig_grau.update_layout(showlegend=False)
+
+            st.plotly_chart(fig_grau)
+
     if mostrar_cor:
         cor_cols = [col for col in df.columns if "COR_" in col]
         if cor_cols:
