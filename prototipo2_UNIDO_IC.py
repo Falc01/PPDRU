@@ -516,26 +516,26 @@ def page_2():
     if mostrar_salario:
                 
         resp_pizza_values = {
-        "0 a 2 Salírios mínimos": df_bairro_selecionado["RESP_RENDA_0_2_SM"].iloc[0],
-        "2 a 5 Salírios mínimos": df_bairro_selecionado["RESP_RENDA_2_5_SM"].iloc[0],
-        "5 a 10 Salírios mínimos": df_bairro_selecionado["RESP_RENDA_5_10_SM"].iloc[0],
-        "10 a 20 Salírios mínimos": df_bairro_selecionado["RESP_RENDA_10_20_SM"].iloc[0],
-        "20 ou mais Salírios mínimos": df_bairro_selecionado["RESP_RENDA_20_MAIS_SM"].iloc[0],
+        "0 a 2 Salários mínimos": df_bairro_selecionado["RESP_RENDA_0_2_SM"].iloc[0],
+        "2 a 5 Salários mínimos": df_bairro_selecionado["RESP_RENDA_2_5_SM"].iloc[0],
+        "5 a 10 Salários mínimos": df_bairro_selecionado["RESP_RENDA_5_10_SM"].iloc[0],
+        "10 a 20 Salários mínimos": df_bairro_selecionado["RESP_RENDA_10_20_SM"].iloc[0],
+        "20 ou mais Salários mínimos": df_bairro_selecionado["RESP_RENDA_20_MAIS_SM"].iloc[0],
         "Sem Rendimento": df_bairro_selecionado["RESP_SEM_RENDIMENTO"].iloc[0],
         }
         
-        st.write(f'### 📊 Rendimento em salírios mínimos dos responáveis pelos domicílios particulares permanentes, segundo os bairros de Salvador, 2010')
+        st.write(f'### 📊 Rendimento em salários mínimos dos responáveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010')
         st.write(f'##### {bairro_selecionado}')
         
         fig_resp_pizza = px.pie(
             names=list(resp_pizza_values.keys()),
             values=list(resp_pizza_values.values()),
             category_orders={"names": [
-             "0 a 2 Salírios mínimos",
-             "2 a 5 Salírios mínimos",
-             "5 a 10 Salírios mínimos",
-             "10 a 20 Salírios mínimos",
-             "20 ou mais Salírios mínimos",
+             "0 a 2 Salários mínimos",
+             "2 a 5 Salários mínimos",
+             "5 a 10 Salários mínimos",
+             "10 a 20 Salários mínimos",
+             "20 ou mais Salários mínimos",
              'Sem Rendimento',
             ]}
         )
