@@ -323,7 +323,7 @@ def page_2():
     #mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
     mostrar_renda_sexo = st.sidebar.checkbox("Rendimento médio dos responsáveis por sexo", True)
     mostrar_salario = st.sidebar.checkbox("Rendimento em salários mínimos dos responsáveis", True)
-    mostrar_renda = st.sidebar.checkbox("Média de Renda", True)
+    mostrar_renda = st.sidebar.checkbox("Rendimento médio dos responsáveis", True)
 
     if mostrar_domicilios:
         dom_cols = [col for col in df.columns if "DOM_" in col]
@@ -555,7 +555,7 @@ def page_2():
         # Adicionar a coluna de cor, sem alterar a ordem dos bairros
         df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
         
-        st.write('### 📊 Rendimento médio dos responsáveis por domicílios particulares permanentes, segundo os bairros do município de Salvador, 2010')
+        st.write('### 📊 Rendimento médio dos responsáveis por domicílios particulares permanentes segundo os bairros de Salvador, 2010')
     
         # Filtro de ordenação
         st.write("##### 🔽 Ordenação dos Dados")
