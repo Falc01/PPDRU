@@ -35,7 +35,7 @@ def formatar_rotulo(rotulo):
     return " ".join(palavra.capitalize() for palavra in rotulo.split("_"))
 
 # Menu na barra lateral para navegação entre páginas
-page = st.sidebar.radio("Escolha a página", ["População", "Domicilios"])
+page = st.sidebar.radio("Escolha a página", ["População", "Domicílios"])
 
 # Função para a página 1
 def page_1():
@@ -591,6 +591,6 @@ def page_2():
 
 if page == "População":
     page_1()
-elif page == "Domicilios":
+elif page == "Domicílios":
     page_2()
         
