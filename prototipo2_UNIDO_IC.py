@@ -135,7 +135,6 @@ def page_1():
                 text_auto=True)
             
             st.plotly_chart(fig_barras)
-            st.write(f"##### Grau de Envelhecimento no Bairro {bairro_selecionado}: {df_bairro_selecionado['GRAU_ENVELHECIMENTO'].iloc[0]} idosos por 100 crianças")
 
             st.write('### Grafico sobre o Grau de Envelhecimento')
             
