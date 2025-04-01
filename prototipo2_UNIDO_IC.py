@@ -53,7 +53,7 @@ def page_1():
         valores_bairro = {
             "Homens": df_bairro_selecionado["POP_TOTAL_HOMEM"].iloc[0],
             "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
-            }
+        }
         
         st.write("### 📊 Distribuição percentual da população residente, por sexo, segundo os bairros de Salvador, 2010")
         st.write(f"##### {bairro_selecionado}")
@@ -61,7 +61,7 @@ def page_1():
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
             values=list(valores_bairro.values()),
-            )
+        )
         
         st.plotly_chart(fig_pizza)
     
