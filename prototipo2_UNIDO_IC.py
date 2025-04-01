@@ -136,11 +136,12 @@ def page_1():
             fig_barras = px.bar(
                 x=list(faixa_etaria.keys()), 
                 y=list(faixa_etaria.values()),
-                labels= {"x" : "Grupos de Idades", 'y' : 'População'},
+                labels= {"x" : "Grupos de Idades", 'y' : ' '},
+                text_auto=True
             )
 
             #Remover a legenda, e editar o grafico
-            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            fig_barras.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
             
             st.plotly_chart(fig_barras)
 
