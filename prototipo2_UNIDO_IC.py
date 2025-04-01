@@ -51,8 +51,8 @@ def page_1():
     # Exibir gráficos conforme seleção do usuário
     if mostrar_pop_total:
         
-        resp_mulher_pop = df_bairro["POP_TOTAL_MULHER"].values[0]
-        resp_homens_pop = df_bairro["POP_TOTAL_HOMEM"].values[0]
+        resp_mulher_pop = df_bairro_selecionado["POP_TOTAL_MULHER"].values[0]
+        resp_homens_pop = df_bairro_selecionado["POP_TOTAL_HOMEM"].values[0]
         
         valores_bairro = pd.DataFrame({
                 "Categoria_pop": [
