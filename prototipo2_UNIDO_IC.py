@@ -368,10 +368,10 @@ def page_2():
     if mostrar_moradores:
         
         dom_pizza_values = {
-        "Domicílios com 1 Morador": df_bairro_selecionado["DOM_1_MORADOR"].iloc[0],
-        "Domicílios com 2 a 4 Moradores": df_bairro_selecionado["DOM_2_4_MORADORES"].iloc[0],
-        "Domicílios com 5 a 6 Moradores ": df_bairro_selecionado["DOM_5_6_MORADORES"].iloc[0],
-        "Domicílios com 7 ou mais Moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
+        "1 morador": df_bairro_selecionado["DOM_1_MORADOR"].iloc[0],
+        "2 a 4 moradores": df_bairro_selecionado["DOM_2_4_MORADORES"].iloc[0],
+        "5 a 6 moradores ": df_bairro_selecionado["DOM_5_6_MORADORES"].iloc[0],
+        "7 ou mais moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
         }
         
         st.write(f'### 📊Distribuição percentual dos domicílios, por número de moradores, segundo os bairros de Salvador, 2010')
@@ -381,10 +381,10 @@ def page_2():
             names=list(dom_pizza_values.keys()), 
             values=list(dom_pizza_values.values()),
             category_orders={"names": [
-             "Domicílios com 1 Morador",
-             "Domicílios com 2 a 4 Moradores",
-             "Domicílios com 5 a 6 Moradores",
-             "Domicílios com 7 ou mais Moradores"
+             "1 morador",
+             "2 a 4 moradores",
+             "5 a 6 moradores",
+             "7 ou mais moradores"
             ]}
         )
         st.plotly_chart(fig_dom_pizza)
