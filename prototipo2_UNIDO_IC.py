@@ -106,7 +106,7 @@ def page_1():
 
         st.plotly_chart(fig_pop_total)
         
-        st.write('### 📊 Grafico da proporção de um bairro sobre a população de salvador população de salvador ')
+        st.write('### 📊 Participação da população do bairro, em relação ao municipio de Salvador, 2010')
         
         st.write('######## aqui ficaria o graffio da proporção da população do bairro sobre a população de salvador')
 
