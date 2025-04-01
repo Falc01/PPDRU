@@ -139,12 +139,12 @@ def page_1():
                 labels= {"x" : "Grupos de Idades", 'y' : 'População'},
             )
 
-
-            #Remover a legenda
-            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False, yaxis_tickformat=",")
+            #Remover a legenda, e editar o grafico
+            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            
             st.plotly_chart(fig_barras)
 
-            st.write('### Grafico sobre o Grau de Envelhecimento')
+            st.write('### 📊 Grau de Envelhecimento segundo os bairros de Salvador, 2010')
             
             #Adicionar a coluna de cor, sem alterar a ordem dos bairros
             df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
