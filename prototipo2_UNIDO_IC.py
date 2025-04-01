@@ -138,7 +138,10 @@ def page_1():
                 y=list(faixa_etaria.values()),
                 labels= {"x" : "Idades", 'y' : 'População'},
                 text_auto=True)
-            
+
+
+            #Remover a legenda
+            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False)
             st.plotly_chart(fig_barras)
 
             st.write('### Grafico sobre o Grau de Envelhecimento')
