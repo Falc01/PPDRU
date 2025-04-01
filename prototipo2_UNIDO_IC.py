@@ -336,7 +336,7 @@ def page_2():
             "Domicilios em Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
             
-            st.write(f'### 📊 Distribuição dos domicílios particulares permanentes por tipo, segundo os bairros de Salvador, 2010')
+            st.write(f'### 📊 Distribuição dos domicílios particulares permanentes, por tipo, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
             
             fig_dom = px.bar(
@@ -344,11 +344,20 @@ def page_2():
                 y=list(dom_values.values()),
                 labels= {"x" : "Domicilios", 'y' : 'Quantidade'},
                 )
+
+            # Remover a legenda
+            fig_dom.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            
             st.plotly_chart(fig_dom)
             
             dom_totais = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
     
             st.write(f"### Total de Domicilios no Bairro {bairro_selecionado}: {dom_totais}")
+
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
     
     if mostrar_moradores:
         
