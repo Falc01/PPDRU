@@ -50,19 +50,26 @@ def page_1():
     
     # Exibir gráficos conforme seleção do usuário
     if mostrar_pop_total:
-        valores_bairro = {
-            "Homens": df_bairro_selecionado["POP_TOTAL_HOMEM"].iloc[0],
-            "Mulheres": df_bairro_selecionado["POP_TOTAL_MULHER"].iloc[0]
-            }
+        
+        resp_mulher_pop = df_bairro["POP_TOTAL_MULHER"].values[0]
+        resp_homens_pop = df_bairro["POP_TOTAL_HOMEM"].values[0]
+        
+        valores_bairro = pd.DataFrame({
+                "Categoria_pop": [
+                    "Mulheres", 
+                    "Homens"
+                ],
+                "Quantidade_pop": [resp_mulher_pop, resp_homens_pop]
+            })
         
         st.write("### 📊 Distribuição percentual da população residente, por sexo, segundo os bairros de Salvador, 2010")
         st.write(f"##### {bairro_selecionado}")
         
         fig_pizza = px.pie(
-            names=list(valores_bairro.keys()), 
-            values=list(valores_bairro.values()),
-            color=valores_bairro,
-            color_discrete_map={
+                names="Categoria_pop", 
+                values="Quantidade_pop", 
+                color="Categoria_pop",
+                color_discrete_map={
                     "Mulheres": "pink",
                     "Homens": "blue"
                 }
