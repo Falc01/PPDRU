@@ -392,7 +392,7 @@ def page_2():
             legend=dict(
             traceorder='normal',  # Ordena conforme a ordem dos dados
             itemsizing='constant'
-        )
+            )
             
         st.plotly_chart(fig_dom_pizza)
 
