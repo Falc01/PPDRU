@@ -45,6 +45,7 @@ def page_1():
     mostrar_pop_total = st.sidebar.checkbox("População por sexo", True)
     mostrar_pop_total_bairro = st.sidebar.checkbox("População por bairros", True)
     mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
+    mostrar_grau = st.sidebar.checkbox("Grau de envelhecimento", True)
     mostrar_cor = st.sidebar.checkbox("População por cor/raça", True)
     mostrar_densidade = st.sidebar.checkbox("Densidade populacional", True)
     mostrar_analfabetismo = st.sidebar.checkbox("População não alfabetizada", True)
@@ -153,6 +154,9 @@ def page_1():
             st.write(" ")
             st.write(" ")
             st.write(" ")
+
+
+        if mostrar_grau:
             
             st.write('### 📊 Grau de envelhecimento da população residente segundo os bairros de Salvador, 2010')
             
