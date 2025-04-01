@@ -43,7 +43,7 @@ def page_1():
     # Barra lateral para selecionar gráficos
     st.sidebar.header("🔽 Selecione os Gráficos")
     mostrar_pop_total = st.sidebar.checkbox("População por sexo", True)
-    mostrar_pop_total_bairro = st.sidebar.checkbox("População total de Salvador", True)
+    mostrar_pop_total_bairro = st.sidebar.checkbox("População por bairros", True)
     mostrar_faixa_etaria = st.sidebar.checkbox("População por grupos de idade", True)
     mostrar_cor = st.sidebar.checkbox("População por cor/raça", True)
     mostrar_densidade = st.sidebar.checkbox("Densidade populacional", True)
