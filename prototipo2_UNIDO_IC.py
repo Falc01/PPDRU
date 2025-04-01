@@ -107,6 +107,8 @@ def page_1():
         st.plotly_chart(fig_pop_total)
 
         st.markdown(f"📌 **Nota:** A população residente deste bairro representa {percentual_bairro:.2f}% da população de Salvador.")
+        st.write("")
+        St.write("")
     
     if mostrar_faixa_etaria:
         idade_cols = [col for col in df.columns if "IDADE_" in col]
