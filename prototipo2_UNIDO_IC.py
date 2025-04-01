@@ -136,7 +136,7 @@ def page_1():
             fig_barras = px.bar(
                 x=list(faixa_etaria.keys()), 
                 y=list(faixa_etaria.values()),
-                labels= {"x" : "Grupos de idades", 'y' : ' '},
+                labels= {"x" : "Grupos de idade", 'y' : ' '},
                 text_auto=True
             )
 
