@@ -532,10 +532,10 @@ def page_2():
             values=list(resp_pizza_values.values()),
             category_orders={"names": [
              "0 a 2 Salários mínimos",
-             "2 a 5 Salários mínimos",
-             "5 a 10 Salários mínimos",
-             "10 a 20 Salários mínimos",
-             "20 ou mais Salários mínimos",
+             "mais de 2 a 5 Salários mínimos",
+             "5,1 a 10 Salários mínimos",
+             "10,1 a 20 Salários mínimos",
+             "20,1 ou mais Salários mínimos",
              'Sem Rendimento',
             ]}
         )
@@ -543,7 +543,7 @@ def page_2():
         st.plotly_chart(fig_resp_pizza)
             
         resp_total_bairro = df_bairro_selecionado["RESP_TOTAL"].iloc[0]
-        st.write(f"### População Total de Responsaveis no Bairro {bairro_selecionado}: {resp_total_bairro}")
+        st.write(f"##### População Total de Responsaveis no Bairro {bairro_selecionado}: {resp_total_bairro}")
 
         #Espaçamento entre os graficos
         st.write(" ")
