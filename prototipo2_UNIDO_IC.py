@@ -137,7 +137,7 @@ def page_1():
             st.plotly_chart(fig_barras)
             st.write(f"##### Grau de Envelhecimento no Bairro {bairro_selecionado}: {df_bairro_selecionado['GRAU_ENVELHECIMENTO'].iloc[0]} idosos por 100 crianças")
 
-            st.write('Grafico sobre o Grau de Envelhecimento')
+            st.write('### Grafico sobre o Grau de Envelhecimento')
             
             #Adicionar a coluna de cor, sem alterar a ordem dos bairros
             df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
