@@ -343,7 +343,7 @@ def page_2():
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
                 labels= {"x" : "Tipos de domicilios", 'y' : ' '},
-                text=dom_values
+                text_auto=True
                 )
 
             # Remover a legenda
@@ -352,7 +352,6 @@ def page_2():
                 showlegend=False, 
                 yaxis_showgrid=False, 
                 yaxis_tickformat=".",
-                textposition='outside'
             )
             
             st.plotly_chart(fig_dom)
