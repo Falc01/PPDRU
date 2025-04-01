@@ -145,7 +145,7 @@ def page_1():
             
             st.plotly_chart(fig_barras)
 
-            st.write('### 📊 Grau de Envelhecimento segundo os bairros de Salvador, 2010')
+            st.write('### 📊 Grau de envelhecimento da população residente segundo os bairros de Salvador, 2010')
             
             #Adicionar a coluna de cor, sem alterar a ordem dos bairros
             df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
