@@ -321,7 +321,7 @@ def page_2():
     mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
     mostrar_proporcao = st.sidebar.checkbox("Domicílios por tipo de infraestrutura urbana", True)
     #mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
-    mostrar_renda_sexo = st.sidebar.checkbox("Rendimento por Sexo", True)
+    mostrar_renda_sexo = st.sidebar.checkbox("Rendimento por sexo", True)
     mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicílios", True)
     mostrar_renda = st.sidebar.checkbox("Média de Renda", True)
 
