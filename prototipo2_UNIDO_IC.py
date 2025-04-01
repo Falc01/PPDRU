@@ -319,8 +319,8 @@ def page_2():
     st.sidebar.header("🔽 Selecione os Gráficos")
     mostrar_domicilios = st.sidebar.checkbox("Domicílios por tipo", True)
     mostrar_moradores  = st.sidebar.checkbox("Domicílios por número de moradores", True)
-    mostrar_proporcao = st.sidebar.checkbox("Gráfico de Proporções", True)
-    mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
+    mostrar_proporcao = st.sidebar.checkbox("Domicílios por infraestrutura urbana", True)
+    #mostrar_resp = st.sidebar.checkbox("Responsaveis dos Domicílio", True)
     mostrar_renda_sexo = st.sidebar.checkbox("Renda de Homens e Mulheres", True)
     mostrar_salario = st.sidebar.checkbox("Renda dos Responsaveis dos Domicílios", True)
     mostrar_renda = st.sidebar.checkbox("Média de Renda", True)
@@ -483,7 +483,7 @@ def page_2():
             # Filtrar os dados apenas para o bairro selecionado
             df_bairro = df[df["NOME_BAIRRO"] == bairro_selecionado]
             
-            st.write(f'### 📊 Rendimento medio dos responsaveis pelos domicílios particulares permanentes, por sexo, segundo os bairros de Salvador, 2010 ')
+            st.write(f'### 📊 Rendimento médio dos résponsaveis pelos domicílios particulares permanentes, por sexo, segundo os bairros de Salvador, 2010 ')
             st.write(f'##### {bairro_selecionado}')
 
             # Criar um DataFrame para o gráfico
