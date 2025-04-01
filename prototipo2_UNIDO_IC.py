@@ -518,10 +518,10 @@ def page_2():
         resp_pizza_values = {
         "0 a 2 Salários mínimos": df_bairro_selecionado["RESP_RENDA_0_2_SM"].iloc[0],
         "mais de 2 a 5 Salários mínimos": df_bairro_selecionado["RESP_RENDA_2_5_SM"].iloc[0],
-        "5,1 a 10 Salários mínimos": df_bairro_selecionado["RESP_RENDA_5_10_SM"].iloc[0],
-        "10,1 a 20 Salários mínimos": df_bairro_selecionado["RESP_RENDA_10_20_SM"].iloc[0],
-        "20,1 ou mais Salários mínimos": df_bairro_selecionado["RESP_RENDA_20_MAIS_SM"].iloc[0],
-        "Sem Rendimento": df_bairro_selecionado["RESP_SEM_RENDIMENTO"].iloc[0],
+        "mais de 5 a 10 Salários mínimos": df_bairro_selecionado["RESP_RENDA_5_10_SM"].iloc[0],
+        "mais de 10 a 20 Salários mínimos": df_bairro_selecionado["RESP_RENDA_10_20_SM"].iloc[0],
+        "mais de 20 Salários mínimos": df_bairro_selecionado["RESP_RENDA_20_MAIS_SM"].iloc[0],
+        "Sem rendimento": df_bairro_selecionado["RESP_SEM_RENDIMENTO"].iloc[0],
         }
         
         st.write(f'### 📊 Rendimento em salários mínimos dos responáveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010')
