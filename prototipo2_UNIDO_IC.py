@@ -179,7 +179,7 @@ def page_1():
             )
 
             #Remover a legenda
-            fig_grau.update_layout(showlegend=False)
+            fig_grau.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
             st.plotly_chart(fig_grau)
 
