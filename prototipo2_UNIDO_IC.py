@@ -533,10 +533,10 @@ def page_2():
             category_orders={"names": [
              "0 a 2 Salários mínimos",
              "mais de 2 a 5 Salários mínimos",
-             "5,1 a 10 Salários mínimos",
-             "10,1 a 20 Salários mínimos",
-             "20,1 ou mais Salários mínimos",
-             'Sem Rendimento',
+             "mais de 5 a 10 Salários mínimos",
+             "mais de 10 a 20 Salários mínimos",
+             "mais de 20 Salários mínimos",
+             'Sem rendimento',
             ]}
         )
             
