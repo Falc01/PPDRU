@@ -141,7 +141,7 @@ def page_1():
 
 
             #Remover a legenda
-            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False)
+            fig_barras.update_layout(showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
             st.plotly_chart(fig_barras)
 
             st.write('### Grafico sobre o Grau de Envelhecimento')
