@@ -98,7 +98,7 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="POP_TOTAL_RESIDENTE", 
-            labels={'POP_TOTAL_RESIDENTE': 'População residente', 'NOME_BAIRRO' : 'Bairros de Salvador'}, 
+            labels={'POP_TOTAL_RESIDENTE': ' ', 'NOME_BAIRRO' : 'Bairros de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
