@@ -172,7 +172,7 @@ def page_1():
                 df_ordenado, 
                 x="NOME_BAIRRO", 
                 y='GRAU_ENVELHECIMENTO', 
-                labels={'GRAU_ENVELHECIMENTO': 'Grau de Envelhecimento', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+                labels={'GRAU_ENVELHECIMENTO': ' ', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
                 color="cor", 
                 color_discrete_map={"red": "red", "blue": "lightblue"},
                 category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
