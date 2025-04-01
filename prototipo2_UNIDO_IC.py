@@ -486,7 +486,7 @@ def page_2():
             )
 
             # Remover a legenda
-            fig_genero.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+            fig_renda_genero.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
             # Exibir o gráfico no Streamlit
             st.plotly_chart(fig_renda_genero)
