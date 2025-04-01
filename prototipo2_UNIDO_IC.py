@@ -374,7 +374,7 @@ def page_2():
         "Domicilios com 7 ou mais Moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
         }
         
-        st.write(f'### 📊Distribuição de Moradores por Domicílio: {bairro_selecionado}')
+        st.write(f'### 📊Distribuição percentual de moradores por domicílio, segundo os bairros de Salvador, 2010:')
             
         fig_dom_pizza = px.pie(
             names=list(dom_pizza_values.keys()), 
