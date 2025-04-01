@@ -252,14 +252,14 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="DENSIDADE", 
-            labels={'DENSIDADE': 'Densidade populacional', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'DENSIDADE': ' ', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
         )
 
         # Remover a legenda
-        fig_densidade.update_layout(showlegend=False)
+        fig_densidade.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
         st.plotly_chart(fig_densidade)
         
@@ -296,14 +296,14 @@ def page_1():
             df_ordenado, 
             x="NOME_BAIRRO", 
             y="EDUC_ANALFABETISMO", 
-            labels={'EDUC_ANALFABETISMO': 'População não alfabetizada', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
+            labels={'EDUC_ANALFABETISMO': ' ', 'NOME_BAIRRO' : 'Bairro de Salvador'}, 
             color="cor", 
             color_discrete_map={"red": "red", "blue": "lightblue"},
             category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
         )
 
         # Remover a legenda
-        fig_analfabetismo.update_layout(showlegend=False)
+        fig_analfabetismo.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
         st.plotly_chart(fig_analfabetismo)
 
