@@ -63,13 +63,11 @@ def page_1():
         fig_pizza = px.pie(
             names=list(valores_bairro.keys()), 
             values=list(valores_bairro.values()),
+            color=list(valores_bairro.keys()),  # Define as cores por categoria
+            color_discrete_map={"Homens": "blue", "Mulheres": "pink"}  # Mapeia cores específicas
         )
         
         st.plotly_chart(fig_pizza)
-    
-        pop_total_bairro = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
-        pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
-        percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
 
         #Espaçamento entre os graficos
         st.write(" ")
@@ -114,6 +112,10 @@ def page_1():
 
         st.plotly_chart(fig_pop_total)
 
+        pop_total_bairro = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
+        pop_total_geral = df["POP_TOTAL_RESIDENTE"].sum()
+        percentual_bairro = (pop_total_bairro / pop_total_geral) * 100
+
         st.markdown(f"📌 **Nota:** A população residente deste bairro representa {percentual_bairro:.2f}% da população de Salvador.")
 
         #Espaçamento entre os graficos
@@ -145,6 +147,9 @@ def page_1():
                 text_auto=True
             )
 
+            # Posicionar os números acima das colunas
+            fig_barras.update_traces(textposition="outside")
+
             #Remover a legenda, e editar o grafico
             fig_barras.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
             
@@ -155,51 +160,50 @@ def page_1():
             st.write(" ")
             st.write(" ")
 
-
-        if mostrar_grau:
+    if mostrar_grau:
             
-            st.write('### 📊 Grau de envelhecimento da população residente segundo os bairros de Salvador, 2010')
+        st.write('### 📊 Grau de envelhecimento da população residente segundo os bairros de Salvador, 2010')
             
-            #Adicionar a coluna de cor, sem alterar a ordem dos bairros
-            df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
+        #Adicionar a coluna de cor, sem alterar a ordem dos bairros
+        df["cor"] = df["NOME_BAIRRO"].apply(lambda x: "red" if x == bairro_selecionado else "blue")
 
-            #Filtro de ordenação
-            st.write("##### 🔽 Ordenação dos Dados")
-            
-            opcoes_ordenacao_grau = {
-               "Alfabética": ("NOME_BAIRRO", True),
-               "Salvador (Crescente)": ('GRAU_ENVELHECIMENTO', True),
-               "Salvador (Decrescente)": ('GRAU_ENVELHECIMENTO', False),
-            }   
+        #Filtro de ordenação
+        st.write("##### 🔽 Ordenação dos Dados")
+        
+        opcoes_ordenacao_grau = {
+           "Alfabética": ("NOME_BAIRRO", True),
+           "Salvador (Crescente)": ('GRAU_ENVELHECIMENTO', True),
+            "Salvador (Decrescente)": ('GRAU_ENVELHECIMENTO', False),
+        }   
 
-            criterio_ordenacao_grau = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_grau.keys()))
+        criterio_ordenacao_grau = st.selectbox("Escolha o critério de ordenação", list(opcoes_ordenacao_grau.keys()))
 
-            #Aplicar ordenação ao DataFrame
-            coluna_ordenacao_grau, ordem_crescente = opcoes_ordenacao_grau[criterio_ordenacao_grau]
-            df_ordenado = df.sort_values(by=coluna_ordenacao_grau, ascending=ordem_crescente)
+        #Aplicar ordenação ao DataFrame
+        coluna_ordenacao_grau, ordem_crescente = opcoes_ordenacao_grau[criterio_ordenacao_grau]
+        df_ordenado = df.sort_values(by=coluna_ordenacao_grau, ascending=ordem_crescente)
 
-            #Ordenar os dados para manter a ordem original dos bairros
-            categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
+        #Ordenar os dados para manter a ordem original dos bairros
+        categoria_ordem = df_ordenado["NOME_BAIRRO"].tolist()
 
-            fig_grau = px.bar(
-                df_ordenado, 
-                x="NOME_BAIRRO", 
-                y='GRAU_ENVELHECIMENTO', 
-                labels={'GRAU_ENVELHECIMENTO': ' ', 'NOME_BAIRRO' : 'Bairros de Salvador'}, 
-                color="cor", 
-                color_discrete_map={"red": "red", "blue": "lightblue"},
-                category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
-            )
+        fig_grau = px.bar(
+            df_ordenado, 
+            x="NOME_BAIRRO", 
+            y='GRAU_ENVELHECIMENTO', 
+            labels={'GRAU_ENVELHECIMENTO': ' ', 'NOME_BAIRRO' : 'Bairros de Salvador'}, 
+            color="cor", 
+            color_discrete_map={"red": "red", "blue": "lightblue"},
+            category_orders={"NOME_BAIRRO": categoria_ordem}  # Garantir a ordem original
+        )
 
-            #Remover a legenda
-            fig_grau.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
+        #Remover a legenda
+        fig_grau.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
 
-            st.plotly_chart(fig_grau)
+        st.plotly_chart(fig_grau)
 
-            #Espaçamento entre os graficos
-            st.write(" ")
-            st.write(" ")
-            st.write(" ")
+        #Espaçamento entre os graficos
+        st.write(" ")
+        st.write(" ")
+        st.write(" ")
 
     if mostrar_cor:
         cor_cols = [col for col in df.columns if "COR_" in col]
@@ -218,7 +222,9 @@ def page_1():
             
             fig_cor = px.pie(
                 names=list(cor_values.keys()), 
-                values=list(cor_values.values()), 
+                values=list(cor_values.values()),
+                color=list(cor_values.keys()),  # Define as cores por categoria
+                color_discrete_map={"Parda": "brown", "Preta": "black", "Branca": "white", 'Amarela': 'yellow', 'Indigena': 'Green'}  # Mapeia cores específicas
                 )
             
             st.plotly_chart(fig_cor)
@@ -331,29 +337,32 @@ def page_2():
         if dom_cols:
             
             dom_values = {
-            "Casa": df_bairro_selecionado["DOM_PART_PERM_CASA"].iloc[0],
-            "Casa em vilas": df_bairro_selecionado["DOM_PART_PERM_CASA_VILA"].iloc[0],
-            "Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
+                "Casa": df_bairro_selecionado["DOM_PART_PERM_CASA"].iloc[0],
+                "Casa em vilas": df_bairro_selecionado["DOM_PART_PERM_CASA_VILA"].iloc[0],
+                "Apartamentos": df_bairro_selecionado["DOM_PART_PERM_CASA_APART"].iloc[0],
             }
-            
+    
             st.write(f'### 📊 Total de domicílios particulares permanentes, por tipo, segundo os bairros de Salvador, 2010')
             st.write(f'##### {bairro_selecionado}')
-            
+    
             fig_dom = px.bar(
                 x=list(dom_values.keys()), 
                 y=list(dom_values.values()),
-                labels= {"x" : "Tipo de domicílio", 'y' : ' '},
-                text_auto=True
-                )
+                labels={"x": "Tipo de domicílio", "y": " "},
+                text_auto=True  # Mostra os valores automaticamente
+            )
 
-            # Remover a legenda
+            # Posicionar os números acima das colunas
+            fig_dom.update_traces(textposition="outside")
+
+            # Remover a legenda e ajustar o layout
             fig_dom.update_layout(
                 yaxis_showticklabels=False, 
                 showlegend=False, 
                 yaxis_showgrid=False, 
-                yaxis_tickformat=".",
+                yaxis_tickformat="."
             )
-            
+    
             st.plotly_chart(fig_dom)
             
             dom_totais = df_bairro_selecionado["POP_TOTAL_RESIDENTE"].iloc[0]
@@ -368,39 +377,48 @@ def page_2():
     if mostrar_moradores:
         
         dom_pizza_values = {
-        "1 morador": df_bairro_selecionado["DOM_1_MORADOR"].iloc[0],
-        "2 a 4 moradores": df_bairro_selecionado["DOM_2_4_MORADORES"].iloc[0],
-        "5 a 6 moradores ": df_bairro_selecionado["DOM_5_6_MORADORES"].iloc[0],
-        "7 ou mais moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
+            "1 morador": df_bairro_selecionado["DOM_1_MORADOR"].iloc[0],
+            "2 a 4 moradores": df_bairro_selecionado["DOM_2_4_MORADORES"].iloc[0],
+            "5 a 6 moradores": df_bairro_selecionado["DOM_5_6_MORADORES"].iloc[0],
+            "7 ou mais moradores": df_bairro_selecionado["DOM_ACIMA_7_MORADORES"].iloc[0],
         }
-        
-        st.write(f'### 📊Distribuição percentual dos domicílios particulares permanentes, por número de moradores, segundo os bairros de Salvador, 2010')
+    
+        st.write(f'### 📊 Distribuição percentual dos domicílios particulares permanentes, por número de moradores, segundo os bairros de Salvador, 2010')
         st.write(f'##### {bairro_selecionado}')
-            
+        
+        # Criando DataFrame para garantir a ordem correta
+        df_pizza = pd.DataFrame({
+            "Categoria": list(dom_pizza_values.keys()),
+            "Valor": list(dom_pizza_values.values())
+        })
+
+        # Definir a ordem correta explicitamente
+        ordem_categorias = [
+            "1 morador",
+            "2 a 4 moradores",
+            "5 a 6 moradores",
+            "7 ou mais moradores"
+        ]
+
+        #Ordena os dados para garantir a sequência correta no gráfico
+        df_pizza["Categoria"] = pd.Categorical(df_pizza["Categoria"], categories=ordem_categorias, ordered=True)
+        df_pizza = df_pizza.sort_values("Categoria", ascending=True)
+
+        # Criando o gráfico de pizza
         fig_dom_pizza = px.pie(
-            names=list(dom_pizza_values.keys()), 
-            values=list(dom_pizza_values.values()),
-            category_orders={"names": [
-             "1 morador",
-             "2 a 4 moradores",
-             "5 a 6 moradores",
-             "7 ou mais moradores"
-            ]}
+            df_pizza,
+            names="Categoria", 
+            values="Valor",
         )
+
+        # Garantindo que os segmentos e a legenda sigam a ordem correta
+        fig_dom_pizza.update_traces(sort=False)  
 
         fig_dom_pizza.update_layout(
-            legend=dict(
-            traceorder='normal',  # Ordena conforme a ordem dos dados
-            itemsizing='constant'
-            )
+            legend=dict(traceorder="normal")  # Exibe na mesma ordem dos dados
         )
-            
-        st.plotly_chart(fig_dom_pizza)
 
-        #Espaçamento entre os graficos
-        st.write(" ")
-        st.write(" ")
-        st.write(" ")
+        st.plotly_chart(fig_dom_pizza)
 
     if mostrar_proporcao:
         prop_cols = [col for col in df.columns if "PROP_" in col]
@@ -419,7 +437,7 @@ def page_2():
                 x=list(prop_values.keys()), 
                 y=list(prop_values.values()),
                 labels={'x' : 'Tipo de infraestrutura urbana', 'y' : ' '}
-                )
+            )
 
             # Remover a legenda
             fig_prop.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
@@ -499,8 +517,14 @@ def page_2():
                 y="Renda Média", 
                 labels={"Renda Média": " ", "Gênero": "Sexo"},
                 color="Gênero", 
-                color_discrete_map={"Homens": "blue", "Mulheres": "pink"}
+                color_discrete_map={"Homens": "blue", "Mulheres": "pink"},
+                text_auto=True,  # Mostra os valores automaticamente
             )
+
+            # Posicionar os números acima das colunas
+            fig_renda_genero.update_traces(textposition="outside")
+            
+            
 
             # Remover a legenda
             fig_renda_genero.update_layout(yaxis_showticklabels=False, showlegend=False, yaxis_showgrid=False, yaxis_tickformat=".")
@@ -593,4 +617,3 @@ if page == "População":
     page_1()
 elif page == "Domicílios":
     page_2()
-        
