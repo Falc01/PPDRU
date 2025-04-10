@@ -14,7 +14,7 @@ bairros_destacados = [
     "Rio Vermelho", "Santo Antonio Além do Carmo", "Itapoan", "Mont Serrat", "Ondina"
 ]
 
-file_path = "prototipo_3/Bairros_salvador.geojson"
+file_path = "Bairros_salvador.geojson"
 
 @st.cache_data
 def load_geojson(file_path):
