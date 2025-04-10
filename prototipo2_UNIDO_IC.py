@@ -548,7 +548,7 @@ def page_2():
         "Sem rendimento": df_bairro_selecionado["RESP_SEM_RENDIMENTO"].iloc[0],
         }
         
-        st.write(f'### 📊 Rendimento em salários mínimos dos responsáveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010')
+        st.write(f'### 📊 Distribuição percentual do rendimento em salários mínimos dos responsáveis pelos domicílios particulares permanentes segundo os bairros de Salvador, 2010')
         st.write(f'##### {bairro_selecionado}')
         
         fig_resp_pizza = px.pie(
@@ -565,9 +565,6 @@ def page_2():
         )
             
         st.plotly_chart(fig_resp_pizza)
-            
-        resp_total_bairro = df_bairro_selecionado["RESP_TOTAL"].iloc[0]
-        st.write(f"##### População Total de Responsaveis no Bairro {bairro_selecionado}: {resp_total_bairro}")
 
         #Espaçamento entre os graficos
         st.write(" ")
