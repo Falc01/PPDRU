@@ -1,0 +1,7 @@
+pandas
+streamlit
+plotly
+openpyxl
+geopandas
+folium
+streamlit-folium
