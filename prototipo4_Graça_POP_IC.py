@@ -24,7 +24,7 @@ dom_pizza_cols = ["DOM_1_MORADOR", "DOM_2_4_MORADORES", "DOM_5_6_MORADORES", "DO
 resp_renda_cols = [ 'RESP_RENDA_0_2_SM', 'RESP_RENDA_2_5_SM', 'RESP_RENDA_5_10_SM', 'RESP_RENDA_10_20_SM', 'RESP_RENDA_20_MAIS_SM', 'RESP_SEM_RENDIMENTO']
 
 # Título do aplicativo
-st.title("📊 Projeto de Disponibilidade de Dados")
+st.title("📊 Dados dos Bairros")
 
 # Filtro para selecionar o bairro
 bairro_selecionado = "Graça"
@@ -224,7 +224,7 @@ def page_1():
                 names=list(cor_values.keys()), 
                 values=list(cor_values.values()),
                 color=list(cor_values.keys()),  # Define as cores por categoria
-                color_discrete_map={"Parda": "brown", "Preta": "black", "Branca": "white", 'Amarela': 'yellow', 'Indigena': 'Green'}  # Mapeia cores específicas
+                color_discrete_map={"Parda": "brown", "Preta": "black", "Branca": "off-white", 'Amarela': 'yellow', 'Indigena': 'Green'}  # Mapeia cores específicas
                 )
             
             st.plotly_chart(fig_cor)
